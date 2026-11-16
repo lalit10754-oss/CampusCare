@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusCare - Complaint System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="sidebar">
+    <h2>CampusCare</h2>
+    <p class="college">Govt. Girls Degree College<br>
+    Block 12, Safoora Goth</p>
+
+    <nav>
+        <button class="active" data-page="dashboard">🏠 Dashboard</button>
+        <button data-page="complaints">📋 All Complaints</button>
+        <button data-page="submit">➕ Submit Complaint</button>
+    </nav>
+
+    <div class="sidebar-footer">
+        College Management Portal
+    </div>
+</div>
+
+<main class="main">
+
+    <header class="topbar">
+        <div>
+            <h2 id="page-title">Dashboard</h2>
+            <p>Welcome to CampusCare Management System</p>
+        </div>
+        <div class="profile">👩‍🎓 Student Panel</div>
+    </header>
+
+    <!-- DASHBOARD -->
+
+    <section id="dashboard" class="page active">
+
+        <div class="welcome">
+            <h1>Welcome to CampusCare!</h1>
+            <p>Report college problems and track their progress easily.</p>
+        </div>
+
+        <div class="stats">
+            <div class="card">
+                <p>Total Complaints</p>
+                <h2 id="total-count">0</h2>
+            </div>
+
+            <div class="card orange">
+                <p>Pending</p>
+                <h2 id="pending-count">0</h2>
+            </div>
+
+            <div class="card blue">
+                <p>In Progress</p>
+                <h2 id="progress-count">0</h2>
+            </div>
+
+            <div class="card green">
+                <p>Resolved</p>
+                <h2 id="resolved-count">0</h2>
+            </div>
+        </div>
+
+        <div class="section-title">
+            <h2>Recent Complaints</h2>
+            <button class="add-btn" data-goto="submit">
+                + New Complaint
+            </button>
+        </div>
+
+        <div id="recent-list" class="complaint-list"></div>
+
+    </section>
+
+    <!-- ALL COMPLAINTS -->
+
+    <section id="complaints" class="page">
+
+        <div class="section-title">
+            <h2>All Complaints</h2>
+
+            <select id="filter-status">
+                <option value="All">All Status</option>
+                <option value="Pending">Pending</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Resolved">Resolved</option>
+            </select>
+        </div>
+
+        <div id="all-list" class="complaint-list"></div>
+
+    </section>
+
+    <!-- SUBMIT COMPLAINT -->
+
+    <section id="submit" class="page">
+
+        <div class="form-card">
+
+            <h2>Submit a Complaint</h2>
+            <p>Tell us about your college problem.</p>
+
+            <form id="complaint-form">
+
+                <label>Student Name</label>
+                <input type="text" id="student-name"
+                    placeholder="Enter your name" required>
+
+                <label>Class / Department</label>
+                <input type="text" id="student-class"
+                    placeholder="Enter your class" required>
+
+                <label>Complaint Category</label>
+                <select id="category" required>
+                    <option value="">Select Category</option>
+                    <option>Classroom Problem</option>
+                    <option>Electricity Problem</option>
+                    <option>Water Problem</option>
+                    <option>Washroom Problem</option>
+                    <option>Computer Lab Problem</option>
+                    <option>Library Problem</option>
+                    <option>Other</option>
+                </select>
+
+                <label>Complaint Details</label>
+                <textarea id="description"
+                    placeholder="Describe your problem..."
+                    rows="5" required></textarea>
+
+                <button type="submit" class="submit-btn">
+                    Submit Complaint
+                </button>
+
+            </form>
+
+            <p id="form-message"></p>
+
+        </div>
+
+    </section>
+
+    <footer>
+        © 2026 CampusCare | Govt. Girls Degree College
+    </footer>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
